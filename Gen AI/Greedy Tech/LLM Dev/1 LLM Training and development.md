@@ -1,4 +1,70 @@
 # 1 LLM Training and development
 
 ## 1.2 Generating Process
+
 <div align="center"><img  height="200px" src="https://i.imghippo.com/files/cc2vN1720566536.jpg" alt="" border="0"></div>
+
+## 1.3
+
+### Case
+
+A financial tech company needs LLM to replace their insurance customer service program
+
+### Solution A: Implementing ChatGPT
+
+<div align="center"><img height="200px" src="https://i.imghippo.com/files/QcNvO1720837391.jpg" alt="" border="0"></div>
+
+The application sends custom prompts to CharGPT. With RAG setting, we can build a custom memory that includes some
+company documents for users, like product info, FAQs. For a higher security purpose, the answers from CharGPT can only
+be based on the custom memory
+
+### Solution B: Train a private model
+
+#### Step 1: Model Pre-train
+
+**Model Design**
+
+- 1 Size
+
+  ~1B
+
+- 2 Architecture
+
+- 3 Tokenizer
+
+  Insurance field tokens
+
+**Clarify Using Scenarios**
+
+- Model performance
+
+  This model should know everything related with insurance, etc.
+
+**Benchmark**
+
+**Data Design**
+
+- Data type
+
+  Vertical data like economic data, insurance data and general data.
+
+- Data quantity
+
+  200B-500B token
+
+- Data ratio
+
+  Different percentage for different types of data or data source. General data should have slightly lager scale.
+
+**Data Sanitize**
+
+- Repeated data
+
+- Punctuations
+
+**Data Injection**
+
+- Provide these data u collect to the model, then u got a pre-trained model.
+
+Your model now should be able to guess out what is the next token when u give it a token.
+But it's not for conversation.
