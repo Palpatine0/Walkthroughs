@@ -66,5 +66,34 @@ be based on the custom memory
 
 - Provide these data u collect to the model, then u got a pre-trained model.
 
+##### BASE MODEL COMPLETE
+
 Your model now should be able to guess out what is the next token when u give it a token.
 But it's not for conversation.
+
+Consider it like a new grad, it simply has the basic knowledge, but it know nothing about how to work.
+
+#### Step 2: Fine-tuning
+
+**Instruction Data**
+
+- Provide model with some instruction data, which is some conversation examples.
+  The input as question and output as answer the model should learn.
+
+- These data needs to cover a vast range of real case scenarios. So these data need to have a higher diversity.
+
+##### CHECK MODEL COMPLETE
+
+- The model is now ready for conversation. Like a trained service will all knowledge he need to know about how to please
+  its client.
+
+#### Step 3: Alignment
+
+**Hallucination and Safeness**
+
+- The model make respond something unwanted, of might give out some inappropriate answer.
+
+- So u need to give it some rules. 
+
+
+
