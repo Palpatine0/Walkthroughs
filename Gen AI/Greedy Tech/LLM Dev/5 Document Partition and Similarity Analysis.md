@@ -29,11 +29,11 @@ Ask the model to return answers only from the designated context, this can large
 entirely
 Here’s the reason:
 
-1. LLM may sometime failed to do the searching work. For some fields like medical or financial, this is very fatal
+1. LLM may sometime fail to do the searching work. For some fields like medical or financial, this is very fatal
 2. LLM may comprehend the context incorrect
 3. Some inquiries may too complex so LLM can’t solve it correctly
 
-### Trunks partition
+### Trunks partitioning
 
 1. **Divide by sentence**
 
@@ -48,5 +48,30 @@ Here’s the reason:
 
 4. **Recursive character text splitting**
 
-The most popular approach, the combination of 2 approaches above, but will also takes the context into account when
-doing partitioning
+   The most popular approach, the combination of 2 approaches above, but will also takes the context into account when
+   doing partitioning
+
+## Vectorization
+
+### Vectorize the chunks
+
+Using encoder to vectorize the chunks
+
+### Vector similarity
+
+Assume we have 3 vectors A(1,2), B(1.2, 1.8), C(2, 1)
+
+<img height=100 src="https://i.imghippo.com/files/U77nl1722778756.jpg" alt="" border="0">
+
+We could draw the conclusion that the similarity between A and B, like `sim(A,B)` is bigger than `sim(B,C)` and `sim(A,C)`.
+The angle between A and B is smaller, making a higher similarity between them.
+
+#### Cosine Similarity 
+Assume we have 2 3D vectors, `a(a1, a2, a3)` `b(b1, b2, b3)`. The cosine similarity between them is 
+```python
+def cosine_sim(A, B):
+    dot_product = np.dot(A, B)
+    normA = np.linalg, norm(A)
+    normB = np.linalg, norm(B)
+    return dot_product / (normA * normB)
+```
